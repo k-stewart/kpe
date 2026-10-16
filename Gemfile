@@ -6,7 +6,7 @@ gem "rails", "~> 8.1.4"
 gem "sqlite3", ">= 2.1"
 gem "puma", ">= 5.0"
 gem "bootsnap", require: false
-gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 2.2"
 
 gem "solid_cache"
 gem "solid_queue"
