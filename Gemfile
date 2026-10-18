@@ -29,7 +29,6 @@ group :development, :test do
   gem "bundler-audit", require: false # Audits gems for known security defects (use config/bundler-audit.yml to ignore issues)
   gem "brakeman", require: false # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
 
-  gem "rubocop", require: false
   gem "rubocop-rails-omakase", require: false
   gem "rspec-rails", "~> 8.0"
   gem "shoulda-matchers", "~> 8.0"
