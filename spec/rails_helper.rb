@@ -69,7 +69,12 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
+  config.include ActiveSupport::Testing::TimeHelpers
+  config.include FactoryBot::Syntax::Methods
+
   config.before(:suite) { FactoryBot.reload }
+
+  config.after { travel_back }
 
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
