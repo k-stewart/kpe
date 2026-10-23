@@ -34,8 +34,6 @@ class HappinessChecker
       .where("vaccination_records.pterosaur_id = pterosaurs.id")
       .select("COUNT(DISTINCT vaccination_records.name)")
 
-    # TODO: this doesn't actually check the required vaccines, just asserts that
-    # the pt has at least as many vaccines are required
     @_unvaccinated_pts = Pterosaur.
       where("(#{current.to_sql}) < ?", required_vaccines.size)
   end

@@ -81,4 +81,22 @@ RSpec.describe HappinessChecker do
       expect(last_snapshot.sad_reasons["too_few_play_dates"]).to eq(2)
     end
   end
+
+  context "when a pterosaur has the right number of vaccines, but not all the required vaccines" do
+    let!(:pt) { create(:pterosaur) }
+    let(:tdaps) do
+      create_list(
+        :vaccination_record,
+        VaccinationRecord::REQUIRED_VACCINATIONS.count,
+        pterosaur: pt,
+        name: VaccinationRecord::REQUIRED_VACCINATIONS.last
+      )
+    end
+
+    it "is not fooled" do
+      described_class.calculate
+
+      expect(last_snapshot.sad_reasons["unvaccinated"]).to eq(1)
+    end
+  end
 end
